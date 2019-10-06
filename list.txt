@@ -1,0 +1,28 @@
+# ECS 150
+
+# man
+man.1
+
+# processes
+
+fork.2
+exec.3
+wait.2
+
+# files
+
+open.2
+close.2
+read.2
+write.2
+
+dup.2
+lseek.2
+stat.2
+chown.2
+chmod.2
+
+# I/O
+
+pipe.2
+

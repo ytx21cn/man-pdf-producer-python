@@ -16,6 +16,7 @@ close.2
 read.2
 write.2
 
+pipe.2
 dup.2
 lseek.2
 stat.2

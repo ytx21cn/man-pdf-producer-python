@@ -1,6 +1,6 @@
-list = "list.txt"
-pdfDir = "pdf"
-main = "man_pdf_producer.py"
+list := "list.txt"
+pdfDir := "pdf"
+main := "man_pdf_producer.py"
 
 all:
 	python3 $(main) $(list)

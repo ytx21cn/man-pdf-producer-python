@@ -30,6 +30,10 @@ def main():
             # https://docs.python.org/3/library/subprocess.html#replacing-shell-pipeline
             generateMan = sp.Popen(['man', '-t'] + line, stdout=sp.PIPE)
             generatedFileName = '%s.pdf' % (','.join(line))
+            # skip the pdf file if already existent
+            if os.path.exists("%s/%s" % (generatedDir, generatedFileName)):
+                continue
+
             generatePdf = sp.Popen(['ps2pdf', '-', '%s/%s' % (generatedDir, generatedFileName)], stdin=generateMan.stdout)
             generateMan.stdout.close()
             generatePdf.communicate()

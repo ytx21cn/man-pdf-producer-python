@@ -14,6 +14,7 @@ git-pull.1
 git-rebase.1
 git-checkout.1
 git-merge.1
+git-fetch.1
 
 # processes
 fork.2

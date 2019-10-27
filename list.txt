@@ -27,6 +27,7 @@ wait.2
 # threads
 getcontext.3
 makecontext.3
+sigaltstack.2
 
 # files
 open.2

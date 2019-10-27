@@ -8,9 +8,12 @@ gcc.1
 
 # git
 git.1
+
 git-commit.1
 git-push.1
 git-pull.1
+
+git-stash.1
 git-rebase.1
 git-checkout.1
 git-merge.1

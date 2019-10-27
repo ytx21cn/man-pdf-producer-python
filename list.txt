@@ -28,6 +28,7 @@ wait.2
 getcontext.3
 makecontext.3
 sigaltstack.2
+sigprocmask.2
 
 # files
 open.2

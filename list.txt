@@ -24,11 +24,16 @@ fork.2
 exec.3
 wait.2
 
-# threads
+# threads, signals, and timers
 getcontext.3
 makecontext.3
+
 sigaltstack.2
 sigprocmask.2
+sigaction.2
+sigsetops.3
+
+getitimer.2
 
 # files
 open.2

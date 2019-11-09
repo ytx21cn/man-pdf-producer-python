@@ -1,4 +1,4 @@
-# ECS 150
+# DO NOT MODIFY THE NAME OF THIS FILE!!!
 
 # man
 man.1
@@ -24,10 +24,11 @@ fork.2
 exec.3
 wait.2
 
-# threads, signals, and timers
+# threads context
 getcontext.3
 makecontext.3
 
+# signals
 signal.7
 
 sigaltstack.2
@@ -35,7 +36,13 @@ sigprocmask.2
 sigaction.2
 sigsetops.3
 
+# timer
 getitimer.2
+
+# memory
+mmap.2
+mremap.2
+mprotect.2
 
 # files
 open.2

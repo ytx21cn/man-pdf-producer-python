@@ -40,6 +40,7 @@ sigsetops.3
 getitimer.2
 
 # memory
+memcpy.3
 mmap.2
 mremap.2
 mprotect.2

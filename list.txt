@@ -36,6 +36,8 @@ sigprocmask.2
 sigaction.2
 sigsetops.3
 
+raise.3
+
 # timer
 getitimer.2
 

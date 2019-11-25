@@ -63,5 +63,7 @@ chmod.2
 pipe.2
 dup.2
 
+sed.1
+
 # errors
 errno.3

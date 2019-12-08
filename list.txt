@@ -62,10 +62,14 @@ stat.2
 chown.2
 chmod.2
 
+find.1
+grep.1
+
 # I/O
 pipe.2
 dup.2
 
+gawk.1
 sed.1
 
 # errors

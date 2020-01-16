@@ -4,6 +4,9 @@ from enum import Enum
 # See man page "console_codes(4)" for the list of colors
 
 class FgColor(Enum):
+    """
+    foreground colors
+    """
     BLACK = '30'
     RED = '31'
     GREEN = '32'
@@ -15,6 +18,9 @@ class FgColor(Enum):
 
 
 class BgColor(Enum):
+    """
+    Background colors
+    """
     BLACK = '40'
     RED = '41'
     GREEN = '42'

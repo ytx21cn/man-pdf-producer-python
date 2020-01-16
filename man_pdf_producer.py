@@ -1,8 +1,9 @@
 import os
 import sys
 import subprocess as sp
-
 from os.path import relpath, abspath
+
+from print_in_colors import FgColor, BgColor, get_colored_str
 
 
 def main():
@@ -35,7 +36,8 @@ def main():
 
             # skip the pdf file if already existent
             if os.path.exists(generated_file_path):
-                print('%s exists, skipping' % generated_file_path)
+                completion_mark = get_colored_str('[!]', fg_color=FgColor.BLACK, bg_color=BgColor.BROWN)
+                print('%s "%s" exists, skipping' % (completion_mark, generated_file_path))
                 continue
 
             # otherwise, generate the pdf
@@ -45,7 +47,9 @@ def main():
             generate_pdf_cmd = sp.Popen(['ps2pdf', '-', generated_file_path], stdin=generate_man_cmd.stdout)
             generate_man_cmd.stdout.close()
             generate_pdf_cmd.communicate()
-            print('%s generated' % generated_file_path)
+
+            completion_mark = get_colored_str('[#]', fg_color=FgColor.BLACK, bg_color=BgColor.GREEN)
+            print('%s "%s" generated' % (completion_mark, generated_file_path))
 
 
 if __name__ == '__main__':

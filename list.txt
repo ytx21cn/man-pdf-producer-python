@@ -72,5 +72,9 @@ dup.2
 gawk.1
 sed.1
 
+# character sets
+ascii.7
+console_codes.4
+
 # errors
 errno.3

@@ -1,45 +1,52 @@
-import os, sys, subprocess as sp
+import os
+import sys
+import subprocess as sp
+
+from os.path import relpath, abspath
+
 
 def main():
 
-    generatedDir = './pdf'
-    os.makedirs(generatedDir, exist_ok=True)
+    generated_dir = './pdf'
+    os.makedirs(generated_dir, exist_ok=True)
 
+    file_name = relpath(__file__, '.')
     argv = sys.argv
     if not (len(argv) >= 2):
-        print('Usage: python3 man_pdf_producer.py <list_of_man_pages>')
+        print('Usage: python3 %s <list_of_man_pages>' % file_name)
         exit(-1)
 
     with open(argv[1]) as infile:
 
-        commentLineStart = '#'
+        comment_line_start = '#'
 
         for line in infile:
             line = line.strip()
             # ignore empty lines
             if (not line) or line.isspace():
                 continue
-            # also, ignore comment lines
-            elif line[:len(commentLineStart)] == commentLineStart:
+            # also, ignore comment lines (i.e. start with '#')
+            elif line[:len(comment_line_start)] == comment_line_start:
                 continue
 
-            # each line is a man command minus the "man" at the beginning
-            line = line.split(' ')
+            # handle each man page entry
+            # each line is a single man page entry
+            generated_file_path = abspath('%s/%s.pdf' % (generated_dir, line))
 
-            generatedFileName = '%s.pdf' % (','.join(line))
             # skip the pdf file if already existent
-            if os.path.exists('%s/%s' % (generatedDir, generatedFileName)):
-                print('%s/%s exists, skipping' % (generatedDir, generatedFileName))
+            if os.path.exists(generated_file_path):
+                print('%s exists, skipping' % generated_file_path)
                 continue
 
+            # otherwise, generate the pdf
             # for this part, see:
             # https://docs.python.org/3/library/subprocess.html#replacing-shell-pipeline
-            generateMan = sp.Popen(['man', '-t'] + line, stdout=sp.PIPE)
-            generatePdf = sp.Popen(['ps2pdf', '-', '%s/%s' % (generatedDir, generatedFileName)], stdin=generateMan.stdout)
-            generateMan.stdout.close()
-            generatePdf.communicate()
-            print('%s/%s generated' % (generatedDir, generatedFileName))
-            pass
+            generate_man_cmd = sp.Popen(['man', '-t', line], stdout=sp.PIPE)
+            generate_pdf_cmd = sp.Popen(['ps2pdf', '-', generated_file_path], stdin=generate_man_cmd.stdout)
+            generate_man_cmd.stdout.close()
+            generate_pdf_cmd.communicate()
+            print('%s generated' % generated_file_path)
+
 
 if __name__ == '__main__':
     main()

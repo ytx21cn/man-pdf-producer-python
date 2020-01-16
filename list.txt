@@ -1,4 +1,5 @@
 # DO NOT MODIFY THE NAME OF THIS FILE!!!
+# Each line consists of a single man page entry, format: <page name>.<section name>
 
 # man
 man.1

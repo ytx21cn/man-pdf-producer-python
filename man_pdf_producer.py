@@ -1,7 +1,7 @@
 import os
 from sys import argv
 import subprocess as sp
-from os.path import abspath
+from os.path import abspath, isfile
 
 from print_in_colors import FgColor, BgColor, get_colored_str
 
@@ -33,7 +33,7 @@ def main():
             generated_file_path = abspath('%s/%s.pdf' % (generated_dir, line))
 
             # skip the pdf file if already existent
-            if os.path.exists(generated_file_path):
+            if isfile(generated_file_path):
                 completion_mark = get_colored_str('[!]', fg_color=FgColor.BLACK, bg_color=BgColor.BROWN)
                 print('%s "%s" exists, skipping' % (completion_mark, generated_file_path))
                 continue

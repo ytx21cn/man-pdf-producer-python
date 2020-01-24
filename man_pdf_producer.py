@@ -1,7 +1,7 @@
 import os
-import sys
+from sys import argv
 import subprocess as sp
-from os.path import relpath, abspath
+from os.path import abspath
 
 from print_in_colors import FgColor, BgColor, get_colored_str
 
@@ -11,10 +11,8 @@ def main():
     generated_dir = './pdf'
     os.makedirs(generated_dir, exist_ok=True)
 
-    file_name = relpath(__file__, '.')
-    argv = sys.argv
     if not (len(argv) >= 2):
-        print('Usage: python3 %s <list_of_man_pages>' % file_name)
+        print('Usage: python3 %s <list_of_man_pages>' % __file__)
         exit(-1)
 
     with open(argv[1]) as infile:

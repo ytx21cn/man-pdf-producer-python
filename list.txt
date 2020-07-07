@@ -79,3 +79,6 @@ console_codes.4
 
 # errors
 errno.3
+
+# archives
+tar.1

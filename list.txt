@@ -82,3 +82,6 @@ errno.3
 
 # archives
 tar.1
+
+# image conversion
+convert.1

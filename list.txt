@@ -88,3 +88,8 @@ tar.1
 
 # image conversion
 convert.1
+
+# Internet services
+wget.1
+curl.1
+

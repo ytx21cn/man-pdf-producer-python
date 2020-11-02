@@ -47,7 +47,8 @@ def main():
             generate_pdf_cmd.communicate()
 
             generate_man_cmd.wait()
-            if generate_man_cmd.returncode != 0:
+            generate_pdf_cmd.wait()
+            if (generate_man_cmd.returncode != 0) or (generate_pdf_cmd.returncode != 0):
                 os.remove(generated_file_path)
                 completion_mark = get_colored_str('[X]', fg_color=FgColor.WHITE, bg_color=BgColor.RED)
                 print('%s "%s" FAILED to generate' % (completion_mark, generated_file_path))
